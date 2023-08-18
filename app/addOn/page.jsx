@@ -24,16 +24,20 @@ const page = () => {
       document.querySelector(".addon-one input").checked = true;
       document.querySelector(".addon-one").style.border =
         "thin solid var(--marine-blue)";
+      document.querySelector(".addon-one").style.background = "var(--magnolia)";
     }
     if (state.storage === true) {
       document.querySelector(".addon-two input").checked = true;
       document.querySelector(".addon-two").style.border =
         "thin solid var(--marine-blue)";
+      document.querySelector(".addon-two").style.background = "var(--magnolia)";
     }
     if (state.profile === true) {
       document.querySelector(".addon-three input").checked = true;
       document.querySelector(".addon-three").style.border =
         "thin solid var(--marine-blue)";
+      document.querySelector(".addon-three").style.background =
+        "var(--magnolia)";
     }
   }, []);
 
@@ -41,28 +45,35 @@ const page = () => {
     if (document.querySelector(".addon-one input").checked) {
       document.querySelector(".addon-one").style.border =
         "thin solid var(--marine-blue)";
+      document.querySelector(".addon-one").style.background = "var(--magnolia)";
       dispatch({ type: "CHANGE_SERVICE", payload: true });
     } else {
       document.querySelector(".addon-one").style.border =
         "thin solid var(--light-grey)";
+      document.querySelector(".addon-one").style.background = "var(--white)";
       dispatch({ type: "CHANGE_SERVICE", payload: false });
     }
     if (document.querySelector(".addon-two input").checked) {
       document.querySelector(".addon-two").style.border =
         "thin solid var(--marine-blue)";
+      document.querySelector(".addon-two").style.background = "var(--magnolia)";
       dispatch({ type: "CHANGE_STORAGE", payload: true });
     } else {
       document.querySelector(".addon-two").style.border =
         "thin solid var(--light-grey)";
+      document.querySelector(".addon-two").style.background = "var(--white)";
       dispatch({ type: "CHANGE_STORAGE", payload: false });
     }
     if (document.querySelector(".addon-three input").checked) {
       document.querySelector(".addon-three").style.border =
         "thin solid var(--marine-blue)";
+      document.querySelector(".addon-three").style.background =
+        "var(--magnolia)";
       dispatch({ type: "CHANGE_PROFILE", payload: true });
     } else {
       document.querySelector(".addon-three").style.border =
         "thin solid var(--light-grey)";
+      document.querySelector(".addon-three").style.background = "var(--white)";
       dispatch({ type: "CHANGE_PROFILE", payload: false });
     }
   }, [temp]);

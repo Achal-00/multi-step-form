@@ -5,34 +5,93 @@ import { useContext, useEffect } from "react";
 
 const Footer = () => {
   const router = useRouter();
+  const width = screen.width;
   const { state, dispatch } = useContext(store);
   const currentPage = usePathname();
 
   useEffect(() => {
-    if (currentPage === "/") {
-      document.querySelector(".back-button").style.visibility = "hidden";
-    } else {
-      document.querySelector(".back-button").style.visibility = "visible";
+    switch (currentPage) {
+      case "/":
+        document.querySelector(".back-button").style.visibility = "hidden";
+        document.querySelector(".next-button button").textContent = "Next Step";
+        document.querySelector(".next-button button").style.background =
+          "var(--marine-blue)";
+        break;
+      case "/plan":
+        document.querySelector(".back-button").style.visibility = "visible";
+        document.querySelector(".next-button button").textContent = "Next Step";
+        document.querySelector(".next-button button").style.background =
+          "var(--marine-blue)";
+        break;
+      case "/addOn":
+        document.querySelector(".next-button button").textContent = "Next Step";
+        document.querySelector(".next-button button").style.background =
+          "var(--marine-blue)";
+        break;
+      case "/final":
+        document.querySelector(".next-button button").textContent = "Confirm";
+        document.querySelector(".next-button button").style.background =
+          "var(--purplish-blue)";
+        break;
+      case "/placed":
+        if (width < 1200) {
+          document.querySelector(".footer").style.background =
+            "var(--magnolia)";
+          document.querySelector(".back-button").style.display = "none";
+          document.querySelector(".next-button").style.display = "none";
+        } else {
+          document.querySelector(".back-button").style.display = "none";
+          document.querySelector(".next-button").style.display = "none";
+        }
+        break;
+      default:
+        break;
     }
-    if (currentPage === "/final") {
-      document.querySelector(".next-button button").textContent = "Confirm";
-      document.querySelector(".next-button button").style.background =
-        "var(--purplish-blue)";
-    } else {
-      document.querySelector(".next-button button").textContent = "Next Step";
-      document.querySelector(".next-button button").style.background =
-        "var(--marine-blue)";
-    }
-    if (currentPage === "/placed") {
-      document.querySelector(".footer").style.background = "var(--magnolia)";
-      document.querySelector(".back-button").style.display = "none";
-      document.querySelector(".next-button").style.display = "none";
-    } else {
-      document.querySelector(".footer").style.background = "var(--white)";
-      document.querySelector(".back-button").style.display = "block";
-      document.querySelector(".next-button").style.display = "block";
-    }
+    // if (currentPage === "/") {
+    //   document.querySelector(".back-button").style.visibility = "hidden";
+    // } else {
+    //   document.querySelector(".back-button").style.visibility = "visible";
+    // }
+    // if (currentPage === "/final") {
+    //   document.querySelector(".next-button button").textContent = "Confirm";
+    //   document.querySelector(".next-button button").style.background =
+    //     "var(--purplish-blue)";
+    // } else {
+    //   document.querySelector(".next-button button").textContent = "Next Step";
+    //   document.querySelector(".next-button button").style.background =
+    //     "var(--marine-blue)";
+    // }
+    // if (currentPage === "/placed") {
+    //   document.querySelector(".footer").style.background = "var(--magnolia)";
+    //   document.querySelector(".back-button").style.display = "none";
+    //   document.querySelector(".next-button").style.display = "none";
+    // } else {
+    //   document.querySelector(".footer").style.background = "var(--white)";
+    //   document.querySelector(".back-button").style.display = "block";
+    //   document.querySelector(".next-button").style.display = "block";
+    // }
+    // if (currentPage === "/placed") {
+    //   if (width < 1200) {
+    //     document.querySelector(".footer").style.background = "var(--magnolia)";
+    //     document.querySelector(".back-button").style.display = "none";
+    //     document.querySelector(".next-button").style.display = "none";
+    //   } else {
+    //     document.querySelector(".footer").style.background = "var(--white)";
+    //   }
+    // } else {
+    //   document.querySelector(".footer").style.background = "var(--white)";
+    // }
   }, [currentPage]);
+
+  // if (currentPage === "/placed") {
+  //   if (width < 1200) {
+  //     document.querySelector(".footer").style.background = "var(--magnolia)";
+  //     document.querySelector(".back-button").style.display = "none";
+  //     document.querySelector(".next-button").style.display = "none";
+  //   } else {
+  //     document.querySelector(".footer").style.background = "var(--magnolia)";
+  //   }
+  // }
 
   useEffect(() => {
     if (state.name !== "" && state.email !== "" && state.number !== "") {

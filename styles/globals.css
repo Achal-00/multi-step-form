@@ -122,7 +122,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .next-button button {
     background: var(--marine-blue);
     border: none;
-    color: var(--light-grey);
+    color: var(--alabaster);
     padding: 0.5em 1em;
     border-radius: 5px;
     font-weight: 500;
@@ -175,7 +175,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .input-fields input {
     height: 50px;
-    border: thin solid var(--cool-grey);
+    border: thin solid var(--light-grey);
     border-radius: 5px;
     padding-left: 1em;
     color: var(--marine-blue);
@@ -349,6 +349,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .arcade-detail div h4 {
     color: var(--cool-grey);
     font-weight: 500;
+    text-decoration: underline;
 }
 
 .arcade-detail h4 {
@@ -394,10 +395,48 @@ p, h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+.loadingPage {
+    background: var(--white);
+    display: grid;
+    align-content: center;
+    justify-items: center;
+}
+
+.loader {
+    border: 4px solid rgba(0, 0, 0, .1);
+    border-left-color: transparent;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    animation: spin89345 1s linear infinite;
+  }
+
+@keyframes spin89345 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
 
 /* For landscape phones */
 
-@media (width >= 35em) and (height <= 27em) and (orientation: landscape) {}
+@media (width >= 35em) and (height <= 27em) and (orientation: landscape) {
+    .container {
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .home {
+        grid-row: 2 / 6;
+    }
+
+    .footer {
+        grid-row: 6 / 7;
+    }
+}
 
 
 /* For portrait tablets */
@@ -424,12 +463,11 @@ p, h1, h2, h3, h4, h5, h6 {
 
     .container {
         grid-template-columns: 1fr 2fr;
-        grid-template-rows: 1fr 0.1fr;
-        /* width: 70%; */
-        border: 1px solid red;
+        /* grid-template-rows: 1fr 0.1fr; */
+        grid-template-rows: auto;
+        /* width: 60%; */
         /* height: 70dvh; */
         min-height: 10dvh;
-        border-radius: 10px;
     }
 
     .header {
@@ -440,6 +478,7 @@ p, h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         padding: 5%;
+        border-radius: 10px 0 0 10px;
     }
 
     .desktop-header-image-holder {
@@ -488,7 +527,7 @@ p, h1, h2, h3, h4, h5, h6 {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
         margin-left: 1em;
-        color: var(--cool-grey);
+        color: var(--light-grey);
     }
 
     .step-1 h4 {
@@ -504,13 +543,85 @@ p, h1, h2, h3, h4, h5, h6 {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
         background-color: var(--white);
+        border-top-right-radius: 10px;
     }
 
     .footer {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
+        padding-right: 5%;
+        border-bottom-right-radius: 10px;
+        background-color: var(--white);
     }
 
+    .wrapper {
+        padding-bottom: 0%;
+    }
+
+    .heading-info h3 {
+        padding: 0;
+    }
+
+    .input-fields input:hover {
+        border: thin solid var(--marine-blue);
+    }
+
+    .next-button button:hover {
+        opacity: 0.9;
+        cursor: pointer;
+    }
+
+    .back-button button:hover {
+        color: var(--marine-blue);
+        cursor: pointer;
+    }
+
+    .page-two-content {
+        padding-top: 10%;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .option-1, .option-2, .option-3 {
+        grid-template-columns: 1fr;
+        padding: 1em;
+        gap: 2em;
+    }
+
+    .option-1:hover, .option-2:hover, .option-3:hover {
+        cursor: pointer;
+        border: thin solid var(--marine-blue);
+    }
+
+    .option-selector {
+        grid-column: 1 / 4;
+    }
+
+    .page-three-content {
+        padding-top: 10%;
+    }
+
+    .addon-input-container input {
+        width: 40%;
+        height: 40%;
+    }
+
+    .addon-input-container input:hover {
+        cursor: pointer;
+    }
+
+    .arcade-detail div h4:hover {
+        color: var(--purplish-blue);
+        cursor: pointer;
+    }
+
+    .page-placed-content {
+        padding: 0%;
+        padding-top: 20%;
+    }
+
+    .page-placed-content h4 {
+        max-width: 30dvw;
+    }
 
 }
 
