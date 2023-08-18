@@ -1,11 +1,16 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
 import { store } from "./store";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const Footer = () => {
+  const [width, setWidth] = useState();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWidth(screen.width);
+    }
+  }, []);
   const router = useRouter();
-  const width = screen.width;
   const { state, dispatch } = useContext(store);
   const currentPage = usePathname();
 

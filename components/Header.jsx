@@ -1,9 +1,15 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const Header = () => {
-  const width = screen.width;
+  const [width, setWidth] = useState();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWidth(screen.width);
+    }
+  }, []);
+
   const currentPage = usePathname();
 
   useEffect(() => {
