@@ -44,8 +44,6 @@ p, h1, h2, h3, h4, h5, h6 {
     --white: hsl(0, 0%, 100%);
 }
 
-/* For portrait phones */
-
 .container {
     min-height: 100dvh;
     display: grid;
@@ -421,9 +419,6 @@ p, h1, h2, h3, h4, h5, h6 {
     }
   }
 
-
-/* For landscape phones */
-
 @media (width >= 35em) and (height <= 27em) and (orientation: landscape) {
     .container {
         grid-template-rows: repeat(6, 1fr);
@@ -438,18 +433,34 @@ p, h1, h2, h3, h4, h5, h6 {
     }
 }
 
+@media (width >= 44.5em) and (orientation: portrait) {
+    .container {
+        grid-template-rows: repeat(6, 1fr);
+    }
 
-/* For portrait tablets */
+    .home {
+        grid-row: 2 / 6;
+    }
 
-@media (width >= 44.5em) and (orientation: portrait) {}
+    .footer {
+        grid-row: 6 / 7;
+    }
+}
 
+@media (width >= 62em) and (height <= 64em) and (orientation: landscape) {
+    .container {
+        grid-template-rows: repeat(5, 1fr);
+        min-height: 10dvh;
+    }
 
-/* For landscape tablets */
+    .home {
+        grid-row: 2 / 5;
+    }
 
-@media (width >= 62em) and (height <= 64em) and (orientation: landscape) {}
-
-
-/* laptops 1200px and up */
+    .footer {
+        grid-row: 5 / 6;
+    }
+}
 
 @media (width >= 75em) {
 
@@ -463,10 +474,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
     .container {
         grid-template-columns: 1fr 2fr;
-        /* grid-template-rows: 1fr 0.1fr; */
         grid-template-rows: auto;
-        /* width: 60%; */
-        /* height: 70dvh; */
         min-height: 10dvh;
     }
 
@@ -625,7 +633,24 @@ p, h1, h2, h3, h4, h5, h6 {
 
 }
 
+@media (width >= 156.25em) {
 
-/* desktops 2500px and up */
+    html {
+        font-size: 3rem;
+    }
 
-@media (width >= 156.25em) {}
+    .input-fields input {
+        height: 3rem;
+        border: thick solid var(--light-grey);
+    }
+
+    .container {
+        min-height: 50dvh;
+        min-width: 70dvw;
+    }
+
+    .common-number {
+        width: 80px;
+        height: 80px;
+    }
+}
