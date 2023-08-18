@@ -4,11 +4,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { StateProvider } from "@/components/store";
 
-export const metadata = {
-  title: "Form",
-  description: "A multi step form",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
