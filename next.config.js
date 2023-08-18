@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  basePath: "/multi-step-form",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
