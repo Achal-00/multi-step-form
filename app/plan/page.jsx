@@ -2,6 +2,7 @@
 import Info from "@/components/Info";
 import { useContext, useEffect } from "react";
 import { store } from "@/components/store";
+import { useRouter } from "next/navigation";
 
 const page = () => {
   const { state, dispatch } = useContext(store);
